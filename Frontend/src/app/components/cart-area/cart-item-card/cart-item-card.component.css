@@ -1,0 +1,26 @@
+.itemContainer {
+  margin: auto;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.itemSubContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+
+.quantity-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+}

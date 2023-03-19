@@ -1,0 +1,18 @@
+.home{
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px rgba(42, 123, 78, 0.5);
+}
+
+button {
+  width: 20%;
+  margin: 3px;
+  padding: 3px;
+}
+
+button:hover {
+  box-shadow: 5px 3px 10px #b3f5bd;
+}

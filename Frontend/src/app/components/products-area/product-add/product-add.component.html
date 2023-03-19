@@ -1,0 +1,39 @@
+<b>הוסף מוצר: </b>
+<div class="add-product-container">
+  <form (ngSubmit)="addProduct()" #productForm="ngForm">
+    <mat-form-field floatLabel="never" color="primary">
+      <label>קטגוריה: </label>
+      <mat-select name="category" [(ngModel)]="product.categoryId" required #categoryBox="ngModel"
+        placeholder="קטגוריה">
+        <mat-option disabled selected>בחירה...</mat-option>
+        <mat-option *ngFor="let c of categories" [value]="c._id">{{c.name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="categoryBox.errors?.['required'] && categoryBox.touched">אנא בחר קטגוריה</mat-error>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="never" color="primary">
+      <label>שם: </label>
+      <input matInput placeholder="שם" type="text" name="name" [(ngModel)]="product.name" required #nameBox="ngModel" />
+      <mat-error *ngIf="nameBox.errors?.['required'] && nameBox.touched">חסר שם</mat-error>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="never" color="primary">
+      <label>מחיר: </label>
+      <input matInput type="number" name="price" [(ngModel)]="product.price" step="0.01" min="0.01" required #priceBox="ngModel" />
+      <mat-error *ngIf="priceBox.errors?.['required'] && priceBox.touched">חסר מחיר</mat-error>
+    </mat-form-field>
+
+    <label>
+      <input type="file" name="file" id="file" class="inputfile" (change)="onFileChange($event)" accept="image/png, image/jpeg" />
+      <mat-hint> הוסף תמונה למוצר</mat-hint>
+      <br />
+      <small *ngIf="imageRef">{{ imageRef.name }}</small>
+    </label>
+    <br />
+
+    <div>
+      <button mat-raised-button mat-dialog-close>סגור</button>
+      <button mat-raised-button mat-dialog-close [disabled]="productForm.invalid" type="submit">הוסף</button>
+    </div>
+  </form>
+</div>

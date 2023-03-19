@@ -1,0 +1,24 @@
+<div>
+  <mat-form-field floatLabel="never" color="primary">
+    <input class="toolbar-search" [(ngModel)]="searchPattern" type="text" matInput placeholder="חפש מוצר"(keyup)="fetchProductsBySearchPattern()" />
+  </mat-form-field>
+</div>
+
+<div class="main-container">
+  <div class="cart-container">
+    <button class="btn" mat-flat-button (click)="cartStatusHandler()">🛒</button>
+    <div [ngClass]="{ cart: cartStatus == true }" [ngClass]="{ hide: cartStatus == false }"
+      [ngClass]="{ show: cartStatus == true }">
+      <app-cart-item-list *ngIf="cartStatus"></app-cart-item-list>
+    </div>
+  </div>
+
+  <div>
+    <button class="btn" mat-flat-button *ngFor="let c of categories" (click)="fetchProductsByCategory(c._id)">{{ c.name }}</button>
+    <button class="btn get-all-btn" mat-flat-button (click)="fetchAllProducts()">כל המוצרים</button>
+
+    <div class="products">
+      <app-product-card *ngFor="let p of products" [product]="p"></app-product-card>
+    </div>
+  </div>
+</div>
