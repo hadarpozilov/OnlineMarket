@@ -1,9 +1,0 @@
-<div class="product-container">
-  <img (click)="openDialog()" [src]="productImageUrl + product.imageName" />
-  <div>
-    <p>{{ product.name }} <span> {{ product.price}}₪ </span></p>
-  </div>
-  <mat-icon *ngIf="isAdmin" class="icon delete-btn" (click)="deleteThisCard(product._id)">❌</mat-icon>
-
-  <mat-icon *ngIf="isAdmin" class="icon edit-btn" (click)="updateProductDialog()">✏️</mat-icon>
-</div>
