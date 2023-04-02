@@ -1,0 +1,46 @@
+.product-container {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid rgb(213, 213, 213);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-container:hover {
+  border: 1px solid #d1d1d1;
+  box-shadow: 10px 10px 20px #d1d1d1;
+  transition: 0.5s;
+}
+
+img {
+  width: 120px;
+  max-height: 150px;
+  margin: auto;
+  mix-blend-mode: darken;
+}
+
+.icon:hover {
+  color: rgb(40, 7, 7);
+  cursor: pointer;
+  transition: 1s;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+
+.edit-btn {
+  position: absolute;
+  top: 7px;
+  right: 28px;
+  padding-right: 12px;
+
+}

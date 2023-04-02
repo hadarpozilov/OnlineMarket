@@ -1,0 +1,25 @@
+<div>
+  <h2>התחברות</h2>
+  <form (ngSubmit)="submit()" #formInfo="ngForm">
+    <mat-form-field floatLabel="never" color="primary">
+      <label>אימיל: </label>
+      <input type="email" name="email" [(ngModel)]="credentials.email" required minlength="4" maxlength="100" #emailBox="ngModel" matInput/>
+      <mat-error *ngIf="emailBox.touched && emailBox.errors?.['required']">חסר אימייל</mat-error>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="never" color="primary">
+      <label>סיסמא: </label>
+      <input type="password" name="password" [(ngModel)]="credentials.password" required minlength="4" maxlength="20" #passwordBox="ngModel" matInput/>
+      <mat-error *ngIf="passwordBox.touched && passwordBox.errors?.['required']">חסר סיסמא</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button [disabled]="formInfo.invalid">התחבר</button>
+  </form>
+
+  <div>
+    <small>לא רשום ? </small>
+    <a class="auth-btn" routerLink="/register"> הירשם </a>
+  </div>
+</div>
+
+<button mat-raised-button routerLink="../home"><mat-icon>arrow_back_ios</mat-icon>חזור </button>

@@ -1,0 +1,12 @@
+<div class="itemContainer">
+  <p>{{ cartItem.name }}</p>
+  <div class="itemSubContainer">
+    <div class="quantity-container">
+      <p class="icon" (click)="decrementOneItem()"> − </p>
+      <small> {{ cartItem.quantity }}</small>
+      <p class="icon" (click)="incrementOneItem()"> + </p>
+    </div>
+    <small> {{ (cartItem.price * cartItem.quantity).toFixed(2) }}₪ </small>
+    <p class="icon" (click)="deleteItem()">❌</p>
+  </div>
+</div>

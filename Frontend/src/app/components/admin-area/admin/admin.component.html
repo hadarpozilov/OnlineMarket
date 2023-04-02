@@ -1,0 +1,21 @@
+<div class="admin-container">
+  <div class="search-container">
+    <mat-form-field floatLabel="never" color="primary">
+      <input matInput type="text"[(ngModel)]="searchPattern" placeholder="חפש מוצר.."(keyup)="fetchProductsBySearchPattern()"/>
+    </mat-form-field>
+  </div>
+  <div class="product-nav-container ">
+    <mat-form-field class="mat-categories">
+      <mat-select (selectionChange)="fetchProductsByCategory($event.value)" placeholder = "קטגוריה">
+        <mat-option *ngFor="let c of categories" [value]="c._id">{{ c.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button (click)="fetchAllProducts()">כל המוצרים</button>
+
+    <button mat-raised-button (click)="addProductDialog()">הוסף מוצר</button>
+  </div>
+
+  <div class="products">
+    <app-product-card *ngFor="let p of products"[product]="p"></app-product-card>
+  </div>
+</div>
